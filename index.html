@@ -184,11 +184,17 @@
   }
   details.q summary::-webkit-details-marker{display:none}
   details.q summary .plus{
-    flex:0 0 auto;width:26px;height:26px;border-radius:50%;
-    border:1.5px solid var(--gold);color:var(--gold-lt);
-    display:grid;place-items:center;font-size:1.1rem;font-weight:700;
+    position:relative;flex:0 0 auto;width:26px;height:26px;border-radius:50%;
+    border:1.5px solid var(--gold);font-size:0;
     transition:transform .2s ease;
   }
+  details.q summary .plus::before,
+  details.q summary .plus::after{
+    content:"";position:absolute;top:50%;left:50%;
+    width:11px;height:1.6px;background:var(--gold-lt);border-radius:2px;
+    transform:translate(-50%,-50%);
+  }
+  details.q summary .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
   details.q[open] summary .plus{transform:rotate(45deg)}
   details.q .ans{padding:0 0 22px;color:var(--muted);font-size:1.02rem}
   details.q .ans strong{color:var(--cream)}
