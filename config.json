@@ -21,19 +21,23 @@
   "partners": [
     {
       "name": "BuyBox",
-      "tier": "Founding Partner"
+      "tier": "Founding Partner",
+      "url": "https://deals.buyboxhq.com"
     },
     {
       "name": "Next Door Capital",
-      "tier": "Partner"
+      "tier": "Partner",
+      "url": "https://nextdoorcapital.net/"
     },
     {
       "name": "Local First Lending",
-      "tier": "Partner"
+      "tier": "Partner",
+      "url": "https://localfirstlending.com/"
     },
     {
       "name": "New Western",
-      "tier": "Partner"
+      "tier": "Partner",
+      "url": "https://www.newwestern.com/off-market-properties/"
     }
   ]
 }

@@ -12,10 +12,12 @@ let tpl = fs.readFileSync(path.join(__dirname, "template.html"), "utf8");
 
 // Build the partner cards from config
 const partners = cfg.partners
-  .map(
-    (p) =>
-      `        <div class="pcard"><span>${esc(p.tier || "Partner")}</span>${esc(p.name)}</div>`
-  )
+  .map((p) => {
+    const inner = `<span>${esc(p.tier || "Partner")}</span>${esc(p.name)}`;
+    return p.url
+      ? `        <a class="pcard" href="${esc(p.url)}" target="_blank" rel="noopener">${inner}</a>`
+      : `        <div class="pcard">${inner}</div>`;
+  })
   .join("\n");
 
 const map = {
