@@ -1,0 +1,28 @@
+{
+  "eventTitle": "Deals on Draft | Pittsburgh's REI Happy Hour",
+  "siteUrl": "https://dealsondraft.com",
+  "rsvpUrl": "https://lu.ma/dealsondraft",
+  "_rsvpUrl_note": "Placeholder — replace with your real Luma event URL once created.",
+  "date": {
+    "weekday": "Thursday",
+    "rest": "September 24, 2026",
+    "full": "Thursday, September 24, 2026"
+  },
+  "time": "6:00 – 9:00 PM",
+  "venue": {
+    "name": "Shorty's Pins x Pints",
+    "address": "353 North Shore Drive, Pittsburgh, PA"
+  },
+  "ics": {
+    "date": "20260924",
+    "start": "180000",
+    "end": "210000",
+    "uid": "deals-on-draft-2026-09-24"
+  },
+  "partners": [
+    { "name": "BuyBox", "tier": "Founding Partner" },
+    { "name": "Next Door Capital", "tier": "Partner" },
+    { "name": "Local First Lending", "tier": "Partner" },
+    { "name": "New Western", "tier": "Partner" }
+  ]
+}
