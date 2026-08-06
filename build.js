@@ -38,6 +38,13 @@ const map = {
   "ICS_END": `${cfg.ics.date}T${cfg.ics.end}`,
   "ICS_UID": cfg.ics.uid,
   "PARTNERS": partners,
+  "PARTNER_STRIP": cfg.partners
+    .filter((p) => p.logo)
+    .map(
+      (p) =>
+        `        <a class="pstrip-item" href="${esc(p.url || "#")}" target="_blank" rel="noopener"><img src="${esc(p.logo)}" alt="${esc(p.name)}" loading="lazy"></a>`
+    )
+    .join("\n"),
 };
 
 // Replace every {{TOKEN}}

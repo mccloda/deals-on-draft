@@ -221,6 +221,22 @@
   .partner.founding .ptier{color:var(--gold-lt)}
   .ptier .arrow{opacity:0;margin-left:5px;transition:opacity .15s ease}
   .partner:hover .ptier .arrow{opacity:.85}
+  /* compact partner logo strip */
+  .pstrip-band{padding:30px 0;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+  .pstrip-label{text-align:center;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:18px}
+  .pstrip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px}
+  .pstrip-item{display:inline-flex;align-items:center}
+  .pstrip-item img{height:30px;width:auto;object-fit:contain;opacity:.72;transition:opacity .15s ease, transform .15s ease}
+  .pstrip-item:hover img{opacity:1;transform:translateY(-2px)}
+  /* "Your firm here" click-to-reveal contact */
+  .card.cta{cursor:pointer;flex-direction:column;gap:9px;outline:none}
+  .card.cta:focus-visible{border-color:var(--gold)}
+  .card.cta .cta-reveal{display:none;flex-direction:column;align-items:center;gap:9px}
+  .card.cta[aria-expanded="true"] .cta-default{display:none}
+  .card.cta[aria-expanded="true"] .cta-reveal{display:flex}
+  .cta-lead{font-size:.9rem;color:var(--cream);font-weight:700;letter-spacing:0;text-transform:none}
+  .pmail{display:inline-block;background:var(--gold);color:#1a1204;font-weight:800;font-size:.82rem;letter-spacing:.02em;padding:9px 16px;border-radius:8px;text-decoration:none;transition:background .15s ease}
+  .pmail:hover{background:var(--gold-lt)}
   .partner-note{text-align:center;color:var(--muted);font-size:.95rem;margin-top:26px;max-width:640px;margin-left:auto;margin-right:auto}
 
   /* closing CTA */
@@ -282,6 +298,16 @@
         to meet good people, exchange ideas, and build lasting relationships. Grab a drink, make a few
         new connections, and spend an evening with some of the best people in the business.
       </p>
+    </div>
+  </section>
+
+  <!-- PARTNER STRIP -->
+  <section class="pstrip-band">
+    <div class="wrap">
+      <div class="pstrip-label">Community Partners</div>
+      <div class="pstrip">
+{{PARTNER_STRIP}}
+      </div>
     </div>
   </section>
 
@@ -443,7 +469,16 @@
       </div>
       <div class="pgrid">
         {{PARTNERS}}
-        <div class="partner"><span class="card txt">Your firm here</span><span class="ptier">Rotating</span></div>
+        <div class="partner open">
+          <div class="card txt cta" role="button" tabindex="0" aria-expanded="false">
+            <span class="cta-default">Your firm here</span>
+            <span class="cta-reveal">
+              <span class="cta-lead">Become a partner</span>
+              <a class="pmail" href="mailto:Dan@buyboxhq.com?subject=Deals%20on%20Draft%20Community%20Partner&body=Hi%20Dan%2C%0D%0A%0D%0AWe%27re%20interested%20in%20becoming%20a%20community%20partner%20for%20Deals%20on%20Draft.%20A%20bit%20about%20our%20firm%3A%0D%0A%0D%0A-%20Company%3A%0D%0A-%20What%20we%20do%3A%0D%0A-%20Best%20contact%3A%0D%0A%0D%0AThanks%21">Email us ↗</a>
+            </span>
+          </div>
+          <span class="ptier">Rotating</span>
+        </div>
       </div>
       <p class="partner-note">Deals on Draft is an independent community institution — a place for professionals
       from every firm to meet on neutral ground. Interested in becoming a community partner? Reach out.</p>
@@ -491,6 +526,21 @@
     var el = document.getElementById(id);
     if(el){ el.setAttribute("href", url); }
   });
+
+  // "Your firm here" click-to-reveal contact
+  var cta = document.querySelector(".card.cta");
+  if(cta){
+    var toggle = function(){
+      cta.setAttribute("aria-expanded", cta.getAttribute("aria-expanded") === "true" ? "false" : "true");
+    };
+    cta.addEventListener("click", function(e){
+      if(e.target.closest(".pmail")) return; // let the email link work
+      toggle();
+    });
+    cta.addEventListener("keydown", function(e){
+      if(e.key === "Enter" || e.key === " "){ e.preventDefault(); toggle(); }
+    });
+  }
 </script>
 </body>
 </html>
