@@ -22,22 +22,26 @@
     {
       "name": "BuyBox",
       "tier": "Founding Partner",
-      "url": "https://deals.buyboxhq.com"
+      "url": "https://deals.buyboxhq.com",
+      "logo": "assets/partners/buybox-white.png"
     },
     {
       "name": "Next Door Capital",
       "tier": "Partner",
-      "url": "https://nextdoorcapital.net/"
+      "url": "https://nextdoorcapital.net/",
+      "logo": "assets/partners/next-door-white.png"
     },
     {
       "name": "Local First Lending",
       "tier": "Partner",
-      "url": "https://localfirstlending.com/"
+      "url": "https://localfirstlending.com/",
+      "logo": "assets/partners/local-first-white.png"
     },
     {
       "name": "New Western",
       "tier": "Partner",
-      "url": "https://www.newwestern.com/off-market-properties/"
+      "url": "https://www.newwestern.com/off-market-properties/",
+      "logo": "assets/partners/new-western-white.png"
     }
   ]
 }

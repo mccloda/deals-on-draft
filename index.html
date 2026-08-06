@@ -204,17 +204,23 @@
   .host{text-align:center;margin-bottom:34px}
   .host .lbl{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:700}
   .host .name{font-size:clamp(1.3rem,3vw,1.7rem);font-weight:800;color:var(--cream);margin-top:8px}
-  .pgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;max-width:820px;margin:0 auto}
-  .pcard{
-    display:block;background:var(--panel);border:1px solid rgba(255,255,255,.07);
-    border-radius:12px;padding:20px 28px;min-width:180px;text-align:center;
-    font-weight:700;color:var(--cream);letter-spacing:.02em;text-decoration:none;
+  .pgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;max-width:900px;margin:0 auto}
+  .partner{display:flex;flex-direction:column;align-items:center;gap:12px;width:224px;text-decoration:none}
+  .partner .card{
+    width:224px;height:130px;border-radius:14px;
+    background:linear-gradient(180deg,var(--panel),var(--panel-2));
+    border:1px solid rgba(255,255,255,.08);
+    display:flex;align-items:center;justify-content:center;padding:22px;
+    transition:transform .16s ease, border-color .16s ease;
   }
-  a.pcard{transition:transform .15s ease, border-color .15s ease, background .15s ease}
-  a.pcard:hover{border-color:var(--gold);transform:translateY(-3px);background:var(--panel-2)}
-  a.pcard::after{content:"↗";margin-left:7px;color:var(--gold-lt);font-size:.82em;opacity:.75}
-  .pcard span{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);font-weight:700;margin-bottom:6px}
-  .pcard.rotate{border-style:dashed;color:var(--muted);font-weight:600}
+  .partner .card img{max-width:172px;max-height:74px;width:auto;height:auto;object-fit:contain;display:block}
+  .partner .card.txt{color:var(--muted);font-weight:700;font-size:1.05rem;background:transparent;border:1.5px dashed var(--line)}
+  .partner:hover .card{transform:translateY(-4px);border-color:var(--gold)}
+  .partner:hover .card.txt{transform:none;border-color:var(--gold)}
+  .ptier{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--muted);text-align:center}
+  .partner.founding .ptier{color:var(--gold-lt)}
+  .ptier .arrow{opacity:0;margin-left:5px;transition:opacity .15s ease}
+  .partner:hover .ptier .arrow{opacity:.85}
   .partner-note{text-align:center;color:var(--muted);font-size:.95rem;margin-top:26px;max-width:640px;margin-left:auto;margin-right:auto}
 
   /* closing CTA */
@@ -436,11 +442,11 @@
         <div class="name">Deals on Draft — Pittsburgh</div>
       </div>
       <div class="pgrid">
-                <a class="pcard" href="https://deals.buyboxhq.com" target="_blank" rel="noopener"><span>Founding Partner</span>BuyBox</a>
-        <a class="pcard" href="https://nextdoorcapital.net/" target="_blank" rel="noopener"><span>Partner</span>Next Door Capital</a>
-        <a class="pcard" href="https://localfirstlending.com/" target="_blank" rel="noopener"><span>Partner</span>Local First Lending</a>
-        <a class="pcard" href="https://www.newwestern.com/off-market-properties/" target="_blank" rel="noopener"><span>Partner</span>New Western</a>
-        <div class="pcard rotate"><span>Rotating</span>Your firm here</div>
+                <a class="partner founding" href="https://deals.buyboxhq.com" target="_blank" rel="noopener"><span class="card"><img src="assets/partners/buybox-white.png" alt="BuyBox" loading="lazy"></span><span class="ptier">Founding Partner<span class="arrow">↗</span></span></a>
+        <a class="partner" href="https://nextdoorcapital.net/" target="_blank" rel="noopener"><span class="card"><img src="assets/partners/next-door-white.png" alt="Next Door Capital" loading="lazy"></span><span class="ptier">Partner<span class="arrow">↗</span></span></a>
+        <a class="partner" href="https://localfirstlending.com/" target="_blank" rel="noopener"><span class="card"><img src="assets/partners/local-first-white.png" alt="Local First Lending" loading="lazy"></span><span class="ptier">Partner<span class="arrow">↗</span></span></a>
+        <a class="partner" href="https://www.newwestern.com/off-market-properties/" target="_blank" rel="noopener"><span class="card"><img src="assets/partners/new-western-white.png" alt="New Western" loading="lazy"></span><span class="ptier">Partner<span class="arrow">↗</span></span></a>
+        <div class="partner"><span class="card txt">Your firm here</span><span class="ptier">Rotating</span></div>
       </div>
       <p class="partner-note">Deals on Draft is an independent community institution — a place for professionals
       from every firm to meet on neutral ground. Interested in becoming a community partner? Reach out.</p>

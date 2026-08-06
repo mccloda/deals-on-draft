@@ -13,10 +13,14 @@ let tpl = fs.readFileSync(path.join(__dirname, "template.html"), "utf8");
 // Build the partner cards from config
 const partners = cfg.partners
   .map((p) => {
-    const inner = `<span>${esc(p.tier || "Partner")}</span>${esc(p.name)}`;
+    const founding = /found/i.test(p.tier || "") ? " founding" : "";
+    const media = p.logo
+      ? `<span class="card"><img src="${esc(p.logo)}" alt="${esc(p.name)}" loading="lazy"></span>`
+      : `<span class="card txt">${esc(p.name)}</span>`;
+    const tier = `<span class="ptier">${esc(p.tier || "Partner")}<span class="arrow">↗</span></span>`;
     return p.url
-      ? `        <a class="pcard" href="${esc(p.url)}" target="_blank" rel="noopener">${inner}</a>`
-      : `        <div class="pcard">${inner}</div>`;
+      ? `        <a class="partner${founding}" href="${esc(p.url)}" target="_blank" rel="noopener">${media}${tier}</a>`
+      : `        <div class="partner">${media}<span class="ptier">${esc(p.tier || "Partner")}</span></div>`;
   })
   .join("\n");
 
