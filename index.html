@@ -237,6 +237,17 @@
   .cta-lead{font-size:.9rem;color:var(--cream);font-weight:700;letter-spacing:0;text-transform:none}
   .pmail{display:inline-block;background:var(--gold);color:#1a1204;font-weight:800;font-size:.82rem;letter-spacing:.02em;padding:9px 16px;border-radius:8px;text-decoration:none;transition:background .15s ease}
   .pmail:hover{background:var(--gold-lt)}
+  /* Add-to-Calendar dropdown */
+  .cal{position:relative;display:inline-block}
+  .cal-toggle{cursor:pointer;background:transparent;font-family:inherit}
+  .cal-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translate(-50%,-6px);
+    background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:6px;min-width:210px;
+    display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;
+    transition:opacity .15s ease, transform .15s ease;z-index:30;box-shadow:0 14px 34px rgba(0,0,0,.55);text-align:center}
+  .cal.open .cal-menu{opacity:1;visibility:visible;transform:translate(-50%,0)}
+  .cal-menu a{display:block;padding:11px 14px;border-radius:8px;color:var(--cream);text-decoration:none;
+    font-size:.92rem;font-weight:600;letter-spacing:0;text-transform:none}
+  .cal-menu a:hover{background:rgba(255,255,255,.06);color:var(--gold-lt)}
   .partner-note{text-align:center;color:var(--muted);font-size:.95rem;margin-top:26px;max-width:640px;margin-left:auto;margin-right:auto}
 
   /* closing CTA */
@@ -280,7 +291,14 @@
       </div>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://luma.com/f2nkm627" target="_blank" rel="noopener">RSVP — It's Free</a>
-        <a class="btn btn-ghost" id="calBtn" href="#" download="deals-on-draft.ics">Add to Calendar</a>
+        <div class="cal">
+          <button class="btn btn-ghost cal-toggle" type="button" aria-haspopup="true" aria-expanded="false">Add to Calendar ▾</button>
+          <div class="cal-menu" role="menu">
+            <a href="/deals-on-draft.ics" role="menuitem">Apple / iCal</a>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Deals%20on%20Draft%20%7C%20Pittsburgh's%20REI%20Happy%20Hour&amp;dates=20260924T180000/20260924T210000&amp;ctz=America/New_York&amp;location=Shorty's%20Pins%20x%20Pints%2C%20353%20North%20Shore%20Drive%2C%20Pittsburgh%2C%20PA&amp;details=Pittsburgh's%20REI%20Happy%20Hour.%20No%20presentations.%20No%20gurus.%20No%20pitches.%20Free%20to%20attend." target="_blank" rel="noopener" role="menuitem">Google Calendar</a>
+            <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&amp;rru=addevent&amp;subject=Deals%20on%20Draft%20%7C%20Pittsburgh's%20REI%20Happy%20Hour&amp;startdt=2026-09-24T18:00:00&amp;enddt=2026-09-24T21:00:00&amp;location=Shorty's%20Pins%20x%20Pints%2C%20353%20North%20Shore%20Drive%2C%20Pittsburgh%2C%20PA&amp;body=Pittsburgh's%20REI%20Happy%20Hour.%20No%20presentations.%20No%20gurus.%20No%20pitches.%20Free%20to%20attend." target="_blank" rel="noopener" role="menuitem">Outlook</a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -498,7 +516,14 @@
       <p>Grab a drink, make a few new connections, and spend an evening with some of the best people in Pittsburgh real estate.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://luma.com/f2nkm627" target="_blank" rel="noopener">RSVP — It's Free</a>
-        <a class="btn btn-ghost" id="calBtn2" href="#" download="deals-on-draft.ics">Add to Calendar</a>
+        <div class="cal">
+          <button class="btn btn-ghost cal-toggle" type="button" aria-haspopup="true" aria-expanded="false">Add to Calendar ▾</button>
+          <div class="cal-menu" role="menu">
+            <a href="/deals-on-draft.ics" role="menuitem">Apple / iCal</a>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Deals%20on%20Draft%20%7C%20Pittsburgh's%20REI%20Happy%20Hour&amp;dates=20260924T180000/20260924T210000&amp;ctz=America/New_York&amp;location=Shorty's%20Pins%20x%20Pints%2C%20353%20North%20Shore%20Drive%2C%20Pittsburgh%2C%20PA&amp;details=Pittsburgh's%20REI%20Happy%20Hour.%20No%20presentations.%20No%20gurus.%20No%20pitches.%20Free%20to%20attend." target="_blank" rel="noopener" role="menuitem">Google Calendar</a>
+            <a href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&amp;rru=addevent&amp;subject=Deals%20on%20Draft%20%7C%20Pittsburgh's%20REI%20Happy%20Hour&amp;startdt=2026-09-24T18:00:00&amp;enddt=2026-09-24T21:00:00&amp;location=Shorty's%20Pins%20x%20Pints%2C%20353%20North%20Shore%20Drive%2C%20Pittsburgh%2C%20PA&amp;body=Pittsburgh's%20REI%20Happy%20Hour.%20No%20presentations.%20No%20gurus.%20No%20pitches.%20Free%20to%20attend." target="_blank" rel="noopener" role="menuitem">Outlook</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -510,27 +535,24 @@
   </footer>
 
 <script>
-  // Build an .ics file on the fly for "Add to Calendar"
-  var ics = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//Deals on Draft//Pittsburgh//EN",
-    "CALSCALE:GREGORIAN",
-    "BEGIN:VEVENT",
-    "UID:deals-on-draft-2026-09-24@dealsondraft",
-    "DTSTAMP:20260805T000000",
-    "DTSTART:20260924T180000",
-    "DTEND:20260924T210000",
-    "SUMMARY:Deals on Draft | Pittsburgh's REI Happy Hour",
-    "LOCATION:Shorty's Pins x Pints\\, 353 North Shore Drive\\, Pittsburgh\\, PA",
-    "DESCRIPTION:Pittsburgh's REI Happy Hour. No presentations. No gurus. No pitches. Just real conversations with people active in Pittsburgh real estate. Free to attend.",
-    "END:VEVENT",
-    "END:VCALENDAR"
-  ].join("\r\n");
-  var url = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
-  ["calBtn","calBtn2"].forEach(function(id){
-    var el = document.getElementById(id);
-    if(el){ el.setAttribute("href", url); }
+  // Add-to-Calendar dropdown menus
+  document.querySelectorAll(".cal-toggle").forEach(function(btn){
+    btn.addEventListener("click", function(e){
+      e.stopPropagation();
+      var cal = btn.closest(".cal");
+      var willOpen = !cal.classList.contains("open");
+      document.querySelectorAll(".cal.open").forEach(function(c){
+        c.classList.remove("open");
+        c.querySelector(".cal-toggle").setAttribute("aria-expanded","false");
+      });
+      if(willOpen){ cal.classList.add("open"); btn.setAttribute("aria-expanded","true"); }
+    });
+  });
+  document.addEventListener("click", function(){
+    document.querySelectorAll(".cal.open").forEach(function(c){
+      c.classList.remove("open");
+      c.querySelector(".cal-toggle").setAttribute("aria-expanded","false");
+    });
   });
 
   // "Your firm here" click-to-reveal contact

@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Deals on Draft//Pittsburgh//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:deals-on-draft-2026-09-24@dealsondraft
+DTSTAMP:20260924T000000Z
+DTSTART:20260924T180000
+DTEND:20260924T210000
+SUMMARY:Deals on Draft | Pittsburgh's REI Happy Hour
+LOCATION:Shorty's Pins x Pints\, 353 North Shore Drive\, Pittsburgh\, PA
+DESCRIPTION:Pittsburgh's REI Happy Hour. No presentations. No gurus. No pitches. Free to attend.
+END:VEVENT
+END:VCALENDAR
