@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d0d0d">
 <title>{{EVENT_TITLE}}</title>
   <link rel="icon" href="/assets/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -136,6 +137,8 @@
   .dcard .lbl{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);font-weight:700}
   .dcard .val{font-size:1.18rem;font-weight:800;color:var(--cream);margin-top:8px}
   .dcard .sub{color:var(--muted);font-size:.95rem;margin-top:4px}
+  .dcard .dir{display:inline-block;margin-top:12px;color:var(--gold-lt);text-decoration:none;font-size:.85rem;font-weight:700;letter-spacing:.02em}
+  .dcard .dir:hover{text-decoration:underline}
   .free-pill{display:inline-block;background:var(--gold);color:#1a1204;font-weight:800;padding:3px 12px;border-radius:999px;font-size:1.02rem}
 
   /* audience chips */
@@ -357,6 +360,7 @@
           <div class="lbl">Venue</div>
           <div class="val">{{VENUE_NAME}}</div>
           <div class="sub">{{VENUE_ADDR}}</div>
+          <a class="dir" href="{{MAPS_URL}}" target="_blank" rel="noopener">Get directions ↗</a>
         </div>
         <div class="dcard">
           <div class="ico">🎟️</div>

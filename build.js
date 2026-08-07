@@ -59,10 +59,15 @@ const outlookUrl = amp(
   `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent&subject=${encodeURIComponent(cfg.eventTitle)}&startdt=${isoDate}T${isoT(cfg.ics.start)}&enddt=${isoDate}T${isoT(cfg.ics.end)}&location=${encodeURIComponent(calLoc)}&body=${encodeURIComponent(calDesc)}`
 );
 
+const mapsUrl = amp(
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${cfg.venue.name}, ${cfg.venue.address}`)}`
+);
+
 const map = {
   "EVENT_TITLE": cfg.eventTitle,
   "GCAL_URL": gcalUrl,
   "OUTLOOK_URL": outlookUrl,
+  "MAPS_URL": mapsUrl,
   "SITE_URL": cfg.siteUrl,
   "RSVP_URL": cfg.rsvpUrl,
   "DATE_FULL": cfg.date.full,
