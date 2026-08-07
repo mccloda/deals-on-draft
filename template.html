@@ -88,7 +88,8 @@
     margin:26px auto 0;max-width:620px;
     font-size:clamp(1.05rem,2.6vw,1.35rem);font-weight:800;color:var(--cream);
   }
-  .nots span{color:var(--gold-lt)}
+  .nots .np{display:inline-block;white-space:nowrap}
+  .nots .gold{color:var(--gold-lt)}
   .hero-meta{
     display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;
     margin-top:30px;color:var(--muted);font-size:.98rem;font-weight:600;
@@ -283,7 +284,7 @@
       <img class="logo" src="assets/logo.png" alt="Deals on Draft — Pittsburgh Real Estate Happy Hour">
       <div class="eyebrow">Pittsburgh's REI Happy Hour</div>
       <h1 class="display">Where the Pittsburgh real estate community meets</h1>
-      <div class="nots">No presentations. <span>No gurus.</span> No pitches.</div>
+      <div class="nots"><span class="np">No presentations.</span> <span class="np gold">No gurus.</span> <span class="np">No pitches.</span></div>
       <div class="hero-meta">
         <div>📅 <b>{{DATE_FULL}}</b></div>
         <div>🕕 <b>{{TIME}}</b></div>
